@@ -1,0 +1,73 @@
+<div class="head-box">
+    <div class="head-div">
+        <div class="head-div-in">
+            <i class="bx bx-envelope" style="color:#CF0028;"></i>
+            <a href="#" class="head-href">sales@climattrading.ru</a>
+        </div>
+
+        <div class="head-div-in">
+            <i class="bx bx-time" style="color:#ff0000;"></i>
+            <p class="head-text">24/7</p>
+        </div>
+
+        <div class="head-div-in">
+            <i class="bx bxl-facebook"></i>
+            <i class="bx bxl-instagram"></i>
+            <i class="bx bxl-youtube"></i>
+        </div>
+        <a href="#" class="href">OWN</a>
+    </div>
+</div>
+
+<header class="header">
+    <div class="container">
+        <div class="header-box">
+
+            <div class="header-left">
+                <img src="/img/trading.png" alt="logo" class="logo">
+
+                <div class="header-phone-box">
+                    <img src="/img/support 1.png" alt="support">
+
+                    <div class="header-phone">
+                        <p>+7 (499) 347-25-62</p>
+                        <p>+7 (926) 008-81-46</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT -->
+            <nav class="header-nav">
+                <ul class="header-list">
+
+                    {{#if user}}
+
+                        <li><a href="/">ОСНОВНОЙ</a></li>
+                        <li><a href="/add">ДОБАВИТЬ ОБЪЕКТ</a></li>
+                        <li><a href="/video">ВИДЕО</a></li>
+                        <li><a href="/object">ОБЪЕКТЫ</a></li>
+                        <li><a href="/about">О НАС</a></li>
+                        <li><a href="/contact">КОНТАКТЫ</a></li>
+                        <li><a href="/auth/logout" class="logout-btn">ВЫХОД</a></li>
+
+                    {{else}}
+
+                        <li><a href="/auth/register" class="register-btn">РЕГИСТРАЦИЯ</a></li>
+                        <li><a href="/auth/login" class="login-btn">ВХОД</a></li>
+
+                    {{/if}}
+
+                </ul>
+
+                {{#if user}}
+                    <i class="bx bx-cart-alt cart-icon"></i>
+                {{/if}}
+            </nav>
+
+        </div>
+    </div>
+
+    {{#if user}}
+        <button class="header-btn">ОТПРАВИТЬ ЗАЯВКУ</button>
+    {{/if}}
+</header>

@@ -1,0 +1,123 @@
+<section class="generator">
+    <div class="container">
+        <div class="generator-box">
+            {{#if objects}}
+            {{#each objects}}
+            <div class="generator-card">
+                <img src="/uploads/{{this.image}}" width="200">
+                <h2 class="generator-name">{{this.name}}</h2>
+                <p class="generator-wolt">Вольт:{{this.wolt}}</p>
+                <p class="generator-massa">Масса:{{this.massa}} кг</p>
+                <p class="generator-price">Стоимость: {{this.price}} Р</p>
+                <p class="generator-give">Доставка: {{this.give}}</p>
+                    <a href="/object/{{this.id}}" class="generator-button">
+                    АРЕНДОВАТЬ
+                    </a>
+                    <a href="/delete:{{this.id}}" class="generator-button">удалить</a>
+            </div>
+            {{/each}}
+            {{else}}
+            <p>Пока данных нет</p>
+            {{/if}}
+        </div>
+    </div>
+</section>
+
+<section class="theme">
+    <div class="container">
+
+        <div class="theme-div">
+            <h2 class="theme-title">компания сегодня</h2>
+            <hr>
+        </div>
+
+        <p class="theme-text">
+            Компания Climat Trading - активный участник рынка климатических услуг,<br>
+            обеспечивающий оборудованием строительные объекты, производственные<br>
+            и складские помещения, временные конструкции и сооружения на территории России.
+            <br><br>
+
+            Благодаря обширному парку оборудования компания Climat Trading успешно<br>
+            занимается снабжением строительных объектов даже в самых отдаленных<br>
+            уголках нашей страны, предоставляет услуги доставки, подключения,<br>
+            456 настройки, а также обслуживания теплового оборудования 24 часа в сутки.
+            <br><br>
+
+            За время работы наши услуги стали востребованными не только в Москве,<br>
+            Екатеринбурге, Твери, Рязани, Туле, Вологде, Калуге, Пензе, Уфе,<br>
+            Североморске, Выборге, Южносахалинске, а также других городах и регионах России.
+            <br><br>
+
+            Этот перечень, надеемся, будет расширяться и дальше.
+        </p>
+
+        <div class="theme-div">
+            <h2 class="theme-title">Climat trading в цифрах</h2>
+            <hr>
+        </div>
+</section>
+
+    <div class="footer">
+    <div class="container">
+        <div class="footer-box">
+            <div class="footer-div-1">
+
+                <div class="footer-div-in-1">
+                    <img src="./img/trading.png" alt="">
+                    <p class="footer-name">Современные системы <br> обогрева</p>
+                </div>
+
+
+                <div class="footer-div-in-2">
+
+                    <div class="footer-div-inin">
+                        <i class='bx bx-phone'></i>
+                        <p class="footer-name">+7 (499) 347-25-62</p>
+                    </div>
+
+                    <div class="footer-div-inin">
+                        <i class='bx bx-envelope'></i>
+                        <p class="footer-name">sales@climattrading.ru</p>
+                    </div>
+                </div>
+
+                <div class="footer-div-in-2">
+                    <div class="footer-div-inin">
+                        <i class='bx bx-phone'></i>
+                        <p class="footer-name">+7 (499) 347-25-62</p>
+                    </div>
+
+                    <div class="footer-div-inin">
+                        <i class='bx bx-time'></i>
+                        <p class="footer-name">24/7</p>
+                    </div>
+                </div>
+
+
+                <div class="footer-div-in-3">
+
+                    <button class="footer-btn">заказать обогрев</button>
+                </div>
+            </div>
+
+
+            <div class="footer-div-d">
+                <li class="header-item"><a href="/" class="header-href">ОСНОВНОЙ</a></li>
+                <li class="header-item"><a href="/add" class="header-href">ДОБАВИТЬ ОБЪЕКТ</a></li>
+                <li class="header-item"><a href="/video" class="header-href">ВИДЕО</a></li>
+                <li class="header-item"><a href="/object" class="header-href">ОБЪЕКТЫ</a></li>
+                <li class="header-item"><a href="/about" class="header-href">О НАС</a></li>
+                <li class="header-item"><a href="/contact" class="header-href">КОНТАКТЫ</a></li>
+            </div>
+
+            <div class="footer-div-5">
+                © climat-trading.ru Политика конфиденциальности <br>
+                Заполняя любую форму обратной связи на нашем сайте,
+                вы соглашаетесь на обработку ваших персональных <br>
+                данных. Вся информация, размещенная на сайте, носит
+                ознакомительный характер и не является публичной
+                офертой, определяемой положением
+            </div>
+        </div>
+    </div>
+</div>

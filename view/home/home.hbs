@@ -1,0 +1,490 @@
+<section class="risk">
+    <div class="container">
+        <div class="risk-box">
+            <div class="risk-dev">
+
+                <div class="risk-div-1">
+                    <h1 class="risk-title-1">
+                        Эффективные системы обогрева
+                    </h1>
+                    <p class="risk-text-1">
+                        Проект отопления объекта под ключ. <br>
+                        Аренда дизельных котельных и теплогенераторов!
+                    </p>
+                </div>
+
+                <div class="risk-div-2">
+                    <h1 class="risk-title-2">
+                        Master BV 690 22 кВ
+                    </h1>
+                    <p class="risk-text-2">
+                        Лучший выбор для обогрева нескольких <br> помещений
+                    </p>
+                </div>
+            </div>
+            <img src="/img/model.png" class="risk-img" alt="rasm yo'q">
+        </div>
+        <button class="risk-btn">подробнее</button>
+    </div>
+</section>
+
+
+
+<section class="document">
+    <div class="container">
+        <div class="document-box">
+            <h1 class="document-title">
+                АРЕНДА ТЕПЛОВЫХ ПУШЕК, КОТЕЛЬНЫХ И ГЕНЕРАТОРОВ <br>
+                В МОСКВЕ С ОБЛСУЖИВАНИЕМ
+                <hr class="hr" style="border: 1px solid #ffad00;">
+            </h1>
+
+            <p class="document-text">
+                Миссия компании Climat Trading направлена на
+                поддержание темпов строительства значимых объектов,
+                развитие инфраструктуры столицы и <br>
+                регионов в зимнее время года. Парк нашей компании насчитывает более
+                200 единиц техники, а это значит, что мы
+                можем обеспечить теплом <br> помещения суммарным объемом более 10
+                000 000 кубических метров. Комплексный подход,
+                а также оперативность особенно важны для наиболее <br>
+                эффективного расчета мощности, быстрого подбора, доставки
+                и установки оборудования, а значит, для
+                своевременной сдачи объектов нашими <br> заказчиками
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="cards">
+    <div class="container">
+        <div class="main-card">
+
+            {{#if objects}}
+            {{#each objects}}
+            <div class="card">
+                <div class="card-img">
+                    <img src="/uploads/{{this.image}}" alt="product">
+                </div>
+
+                <div class="card-footer">
+                    <div class="card-text">
+                        ДИЗЕЛЬНЫЕ ТЕПЛОВЫЕ ПУШКИ
+                    </div>
+
+                    <div class="card-arrow">
+                        <a href="object" style="color: black;">→</a>
+                    </div>
+                </div>
+        </div>
+        {{/each}}
+        {{else}}
+        <p>Пока данных нет</p>
+        {{/if}}
+
+    </div>
+    </div>
+</section>
+
+
+
+
+
+<section class="input">
+    <div class="container">
+        <h1 class="input-title">
+            Расчет тепловой мощности
+        </h1>
+
+
+
+
+        <div class="input-bid">
+
+            <div class="input-box">
+                <h2 class="input-text">
+                    Размеры помещения:
+                </h2>
+                <div class="input-eat">
+
+                    <div class="input-div">
+                        <p class="input-theme">
+                            Длина
+                        </p>
+                        <input type="number" class="input-input"> m
+                    </div>
+
+                    <div class="input-div">
+                        <p class="input-theme">
+                            Ширина
+                        </p>
+                        <input type="number" class="input-input"> m
+                    </div>
+
+                    <div class="input-div">
+                        <p class="input-theme">
+                            Высота
+                        </p>
+                        <input type="number" class="input-input"> m
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="input-mop">
+                <h3 class="input-text">
+                    Температура:
+                </h3>
+
+                <p class="input-theme">
+                    В помещении Снаружи
+                </p>
+
+                <div class="input-dop">
+                    <input type="number" class="input-input"> c
+                    <input type="number" class="input-input"> c
+                </div>
+            </div>
+
+            <div class="input-checkbox">
+                <h3 class="input-text">Тип теплоизоляции:</h3>
+
+
+                <div class="input-check">
+                    <label class="input-label">
+                        <input type="checkbox">
+                        Высокая
+                    </label>
+
+                    <label class="input-label">
+                        <input type="checkbox">
+                        Низкая
+                    </label>
+
+                    <label class="input-label">
+                        <input type="checkbox">
+                        Средняя
+                    </label>
+
+                    <label class="input-label">
+                        <input type="checkbox">
+                        Отсутствует
+                    </label>
+                </div>
+            </div>
+        </div>
+
+
+        <button class="input-btn">
+            вычислить тепловую мощность
+        </button>
+
+        <div class="input-img-box"></div>
+
+    </div>
+
+
+
+</section>
+
+
+<section class="our">
+    <div class="container">
+        <h2 class="our-title">
+            НАШИ ПРЕИМУЩЕСТВА
+        </h2>
+
+        <div class="our-box">
+
+            <div class="our-div">
+                <img src="./img/model1.png" alt="">
+                <p class="our-text">
+                    Большой выбор <br> оборудования <br> европейского качества
+                </p>
+            </div>
+
+
+            <div class="our-div">
+                <img src="./img/model2.png" alt="">
+                <p class="our-text">
+                    Проект отопления <br>
+                    под ключ
+                </p>
+            </div>
+
+            <div class="our-div">
+                <img src="./img/model3.png" alt="">
+                <p class="our-text">
+                    Быстрая доставка <br>
+                    и установка <br>
+                    в день заказа <br>
+                </p>
+            </div>
+
+
+            <div class="our-div">
+                <img src="./img/model4.png" alt="">
+                <p class="our-text">
+                    Обслуживание <br> оборудования <br>
+                    24 часа в сутки
+                </p>
+            </div>
+
+
+            <div class="our-div">
+                <img src="./img/model5.png" alt="">
+                <p class="our-text">
+                    Работаем во всех <br> регионах России
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<section class="theme">
+    <div class="container">
+
+        <div class="theme-div">
+            <h2 class="theme-title">компания сегодня</h2>
+            <hr>
+        </div>
+
+        <p class="theme-text">
+            Компания Climat Trading - активный участник рынка климатических услуг,<br>
+            обеспечивающий оборудованием строительные объекты, производственные<br>
+            и складские помещения, временные конструкции и сооружения на территории России.
+            <br><br>
+
+            Благодаря обширному парку оборудования компания Climat Trading успешно<br>
+            занимается снабжением строительных объектов даже в самых отдаленных<br>
+            уголках нашей страны, предоставляет услуги доставки, подключения,<br>
+            456 настройки, а также обслуживания теплового оборудования 24 часа в сутки.
+            <br><br>
+
+            За время работы наши услуги стали востребованными не только в Москве,<br>
+            Екатеринбурге, Твери, Рязани, Туле, Вологде, Калуге, Пензе, Уфе,<br>
+            Североморске, Выборге, Южносахалинске, а также других городах и регионах России.
+            <br><br>
+
+            Этот перечень, надеемся, будет расширяться и дальше.
+        </p>
+
+        <div class="theme-div">
+            <h2 class="theme-title">Climat trading в цифрах</h2>
+            <hr>
+        </div>
+
+
+        <div class="theme-line">
+
+            <div class="theme-box">
+                <img src="img/scree1.png" alt="">
+                <p class="theme-tex">начало <br> работы</p>
+            </div>
+
+            <div class="theme-box">
+                <img src="img/scree2.png" alt="">
+                <p class="theme-tex">наши <br> объекты</p>
+            </div>
+
+            <div class="theme-box">
+                <img src="img/scree3.png" alt="">
+                <p class="theme-tex">площадь наших <br> объектов</p>
+            </div>
+
+            <div class="theme-box">
+                <img src="img/scree4.png" alt="">
+                <p class="theme-tex">опыт <br> работы </p>
+            </div>
+
+
+            <div class="theme-box">
+                <img src="img/scree5.png" alt="">
+                <p class="theme-tex">суммарная мощность <br> оборудования</p>
+            </div>
+
+
+
+        </div>
+        <div class="img">
+            <div class="img-div">
+                <div class="img-div-in"><i class="bx bx-play"></i></div>
+
+                <div class="img-box">
+
+                    <h2 class="img-title">Реализованные <br> проекты</h2>
+                    <div class="img-box-on">
+
+                        <div class="img-box-in"><i class="bx bx-search"></i></div>
+                        <img src="img/factor2.png" alt="">
+                        <img src="img/factor3.png" alt="">
+                        <img src="img/factor4.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="img-btn">посмотреть все объекты</div>
+    </div>
+</section>
+
+
+<section class="flag">
+    <div class="container">
+
+        <div class="flag-box">
+            <h1 class="flag-title"> мы работаем только с надежным тепловым оборудованием <br>
+                немецкого, финского и американского производства, <br>
+                зарекомендовавшим себя на Европейском рынкеА</h1>
+
+
+            <div class="flag-div">
+
+                <div class="flag-dib">
+                    <h3 class="flag-text">BETOX</h3>
+                    <p class="flag-name">Финляндия</p>
+                    <img src="./img/finland.png" alt="">
+                </div>
+
+
+                <div class="flag-dib">
+                    <h3 class="flag-text">heatmobil</h3>
+                    <p class="flag-name">Финляндия</p>
+                    <img src="./img/finland.png" alt="">
+                </div>
+
+                <div class="flag-dib">
+                    <h3 class="flag-text">REMKO</h3>
+                    <p class="flag-name">Германия</p>
+                    <img src="./img/germany.png" alt="">
+                </div>
+
+                <div class="flag-dib">
+                    <h3 class="flag-text">MASTER</h3>
+                    <p class="flag-name">США</p>
+                    <img src="./img/usa.png" alt="">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="map">
+
+    <div class="map-box">
+
+        <h2 class="map-title">ОТПРАВИТЬ ЗАЯВКУ</h2>
+
+        <form class="map-form">
+
+            <input type="text" placeholder="Имя">
+
+            <input type="tel" placeholder="Телефон">
+
+            <div class="file-box">
+
+                <input type="file" id="file">
+
+                <div class="file-left">
+
+                    <div class="file-icon"></div>
+
+                    <span class="file-name">
+                        Файл не выбран
+                    </span>
+
+                </div>
+
+                <label for="file" class="file-add">
+                    Прикрепить файл
+                </label>
+
+            </div>
+
+            <textarea placeholder="Сообщение"></textarea>
+
+            <button class="map-btn">
+                ОТПРАВИТЬ ЗАЯВКУ
+            </button>
+
+        </form>
+
+    </div>
+
+    <div class="map-img">
+
+        <iframe src="https://www.google.com/maps?q=55.7558,37.6173&z=15&output=embed"></iframe>
+
+    </div>
+
+</section>
+
+
+<div class="footer">
+    <div class="container">
+        <div class="footer-box">
+            <div class="footer-div-1">
+
+                <div class="footer-div-in-1">
+                    <img src="./img/trading.png" alt="">
+                    <p class="footer-name">Современные системы <br> обогрева</p>
+                </div>
+
+
+                <div class="footer-div-in-2">
+
+                    <div class="footer-div-inin">
+                        <i class='bx bx-phone'></i>
+                        <p class="footer-name">+7 (499) 347-25-62</p>
+                    </div>
+
+                    <div class="footer-div-inin">
+                        <i class='bx bx-envelope'></i>
+                        <p class="footer-name">sales@climattrading.ru</p>
+                    </div>
+                </div>
+
+                <div class="footer-div-in-2">
+                    <div class="footer-div-inin">
+                        <i class='bx bx-phone'></i>
+                        <p class="footer-name">+7 (499) 347-25-62</p>
+                    </div>
+
+                    <div class="footer-div-inin">
+                        <i class='bx bx-time'></i>
+                        <p class="footer-name">24/7</p>
+                    </div>
+                </div>
+
+
+                <div class="footer-div-in-3">
+
+                    <button class="footer-btn">заказать обогрев</button>
+                </div>
+            </div>
+
+
+            <div class="footer-div-d">
+                <li class="header-item"><a href="/" class="header-href">ОСНОВНОЙ</a></li>
+                <li class="header-item"><a href="/add" class="header-href">ДОБАВИТЬ ОБЪЕКТ</a></li>
+                <li class="header-item"><a href="/video" class="header-href">ВИДЕО</a></li>
+                <li class="header-item"><a href="/object" class="header-href">ОБЪЕКТЫ</a></li>
+                <li class="header-item"><a href="/about" class="header-href">О НАС</a></li>
+                <li class="header-item"><a href="/contact" class="header-href">КОНТАКТЫ</a></li>
+            </div>
+
+            <div class="footer-div-5">
+                © climat-trading.ru Политика конфиденциальности <br>
+                Заполняя любую форму обратной связи на нашем сайте,
+                вы соглашаетесь на обработку ваших персональных <br>
+                данных. Вся информация, размещенная на сайте, носит
+                ознакомительный характер и не является публичной
+                офертой, определяемой положением
+            </div>
+        </div>
+    </div>
+</div>
