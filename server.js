@@ -10,7 +10,14 @@ require("dotenv").config()
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
-app.engine("hbs", hbs.engine({extname: "hbs"}))
+app.engine("hbs", hbs.engine({
+    extname: "hbs",
+    helpers: {
+        eq: function(a, b) {
+            return a === b;
+        }
+    }
+}))
 app.set("view engine", "hbs")
 app.set("views", "./view")
 

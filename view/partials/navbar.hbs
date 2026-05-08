@@ -43,11 +43,32 @@
                     {{#if user}}
 
                         <li><a href="/">ОСНОВНОЙ</a></li>
-                        <li><a href="/add">ДОБАВИТЬ ОБЪЕКТ</a></li>
-                        <li><a href="/video">ВИДЕО</a></li>
-                        <li><a href="/object">ОБЪЕКТЫ</a></li>
-                        <li><a href="/about">О НАС</a></li>
-                        <li><a href="/contact">КОНТАКТЫ</a></li>
+
+                        <li class="nav-dropdown">
+                            <a href="#" class="nav-dropdown-toggle">ОБЪЕКТЫ ▾</a>
+                            <ul class="nav-dropdown-menu">
+                                <li><a href="/object">МОИ ОБЪЕКТЫ</a></li>
+                                <li><a href="/add">ДОБАВИТЬ ОБЪЕКТ</a></li>
+                                <li><a href="/my-rentals">МОИ АРЕНДЫ</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-dropdown">
+                            <a href="#" class="nav-dropdown-toggle">МАГАЗИН ▾</a>
+                            <ul class="nav-dropdown-menu">
+                                <li><a href="/marketplace">МАРКЕТПЛЕЙС</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-dropdown">
+                            <a href="#" class="nav-dropdown-toggle">ИНФО ▾</a>
+                            <ul class="nav-dropdown-menu">
+                                <li><a href="/about">О НАС</a></li>
+                                <li><a href="/contact">КОНТАКТЫ</a></li>
+                                <li><a href="/video">ВИДЕО</a></li>
+                            </ul>
+                        </li>
+
                         <li><a href="/auth/logout" class="logout-btn">ВЫХОД</a></li>
 
                     {{else}}

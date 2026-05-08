@@ -14,3 +14,35 @@
 
 </body>
 </html>
+
+<script>
+    const params = new URLSearchParams(window.location.search)
+
+    if (params.get("error") === "missing") {
+        alert("Hamma malumotlarni to‘liq kiriting")
+    }
+
+    if (params.get("error") === "server") {
+        alert("Server xatolik")
+    }
+
+    if (params.get("error") === "notfound") {
+        alert("Topilmadi")
+    }
+
+    if (params.get("error") === "id") {
+        alert("ID noto‘g‘ri")
+    }
+
+    if (params.get("success") === "added") {
+        alert("Muvaffaqiyatli qo‘shildi")
+    }
+
+    if (params.get("success") === "updated") {
+        alert("Yangilandi")
+    }
+
+    if (params.get("success") === "deleted") {
+        alert("O‘chirildi")
+    }
+</script>

@@ -1,4 +1,4 @@
-<div class="auth-container" >
+<div class="auth-container">
     <div class="auth-box">
         <h1>Регистрация</h1>
 
@@ -6,11 +6,67 @@
             <input type="text" name="nameUser" placeholder="Имя пользователя">
             <input type="date" name="bornDay" placeholder="Дата рождения">
             <input type="text" name="email" placeholder="Электронная почта">
-            <input type="password" name="password" placeholder="Пароль">
-
+            <div class="password-box">
+                <input type="password" id="password" name="password" placeholder="Пароль">
+                <span onclick="togglePassword()" id="icon">👁</span>
+            </div>
             <button type="submit" class="btn">Регистрация</button>
         </form>
 
         <a href="/auth/login">Вход</a>
     </div>
 </div>
+
+
+<style>
+.password-box {
+    position: relative;
+}
+
+.password-box input {
+    width: 100%;
+    padding: 10px;
+    padding-right: 40px;
+}
+
+.password-box span {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+</style>
+
+<script>
+    function togglePassword(btn) {
+        const input = document.getElementById("password");
+
+        if (input.type === "password") {
+            input.type = "text";
+            btn.textContent = "🙈";
+        } else {
+            input.type = "password";
+            btn.textContent = "👁";
+        }
+    }
+</script>
+<script>
+    const params = new URLSearchParams(window.location.search)
+
+    if (params.get("error") === "email") {
+        alert("Email @gmail.com bo‘lishi kerak")
+    }
+
+    if (params.get("error") === "password") {
+        alert("Parol kamida 8 ta bo‘lishi kerak")
+    }
+
+    if (params.get("error") === "login") {
+        alert("Email yoki parol xato")
+    }
+
+    if (params.get("success") === "1") {
+        alert("Muvaffaqiyatli ro‘yxatdan o‘tildi!")
+    }
+</script>

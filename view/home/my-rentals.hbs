@@ -1,0 +1,92 @@
+<section class="generator">
+    <div class="container">
+        <h1 style="text-align: center; margin: 20px 0; color: #333;">МОИ АРЕНДЫ</h1>
+        <div style="text-align: center; margin-bottom: 20px;">
+            <a href="/marketplace" class="generator-button" style="display: inline-block;">← МАРКЕТПЛЕЙС</a>
+        </div>
+        <div class="generator-box">
+            {{#if rentals}}
+            {{#each rentals}}
+            <div class="generator-card">
+                <img src="/uploads/{{this.object.image}}" width="200">
+                <h2 class="generator-name">{{this.object.name}}</h2>
+                <p class="generator-wolt">Вольт: {{this.object.wolt}}</p>
+                <p class="generator-massa">Масса: {{this.object.massa}} кг</p>
+                <p class="generator-price">Стоимость: {{this.object.price}} Р</p>
+                <p class="generator-give">Доставка: {{this.object.give}}</p>
+                <p class="generator-email" style="font-weight: bold; color: #333;">Владелец: {{this.object.user.email}}</p>
+                <p style="color: green; font-weight: bold; padding: 5px 15px;">✅ Арендовано</p>
+                <a href="/cancel-rental/{{this.id}}" class="generator-button" style="background-color: rgb(207, 6, 6);">ОТМЕНИТЬ АРЕНДУ</a>
+            </div>
+            {{/each}}
+            {{else}}
+            <p style="text-align: center; font-size: 18px; color: #666;">У вас пока нет арендованных объектов</p>
+            {{/if}}
+        </div>
+    </div>
+</section>
+
+<div class="footer">
+    <div class="container">
+        <div class="footer-box">
+            <div class="footer-div-1">
+
+                <div class="footer-div-in-1">
+                    <img src="./img/trading.png" alt="">
+                    <p class="footer-name">Современные системы <br> обогрева</p>
+                </div>
+
+
+                <div class="footer-div-in-2">
+
+                    <div class="footer-div-inin">
+                        <i class='bx bx-phone'></i>
+                        <p class="footer-name">+7 (499) 347-25-62</p>
+                    </div>
+
+                    <div class="footer-div-inin">
+                        <i class='bx bx-envelope'></i>
+                        <p class="footer-name">sales@climattrading.ru</p>
+                    </div>
+                </div>
+
+                <div class="footer-div-in-2">
+                    <div class="footer-div-inin">
+                        <i class='bx bx-phone'></i>
+                        <p class="footer-name">+7 (499) 347-25-62</p>
+                    </div>
+
+                    <div class="footer-div-inin">
+                        <i class='bx bx-time'></i>
+                        <p class="footer-name">24/7</p>
+                    </div>
+                </div>
+
+
+                <div class="footer-div-in-3">
+
+                    <button class="footer-btn">заказать обогрев</button>
+                </div>
+            </div>
+
+
+            <div class="footer-div-d">
+                <li class="header-item"><a href="/" class="header-href">ОСНОВНОЙ</a></li>
+                <li class="header-item"><a href="/add" class="header-href">ДОБАВИТЬ ОБЪЕКТ</a></li>
+                <li class="header-item"><a href="/video" class="header-href">ВИДЕО</a></li>
+                <li class="header-item"><a href="/object" class="header-href">ОБЪЕКТЫ</a></li>
+                <li class="header-item"><a href="/about" class="header-href">О НАС</a></li>
+                <li class="header-item"><a href="/contact" class="header-href">КОНТАКТЫ</a></li>
+            </div>
+
+            <div class="footer-div-5">
+                © climat-trading.ru Политика конфиденциальности <br>
+                Заполняя любую форму обратной связи на нашем сайте,
+                вы соглашаетесь на обработку ваших персональных <br>
+                данных. Вся информация, размещенная на сайте, носит
+                ознакомительный характер и не является публичной
+                офертой, определяемой положением
+            </div>
+        </div>
+    </div>
+</div>

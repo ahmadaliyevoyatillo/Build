@@ -93,6 +93,75 @@
     color: #FFA825;
 }
 
+/* ===== DROPDOWN MENU ===== */
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-dropdown-toggle {
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: 500;
+    color: black;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 8px 0;
+    display: inline-block;
+}
+
+.nav-dropdown-toggle:hover {
+    color: #FFA825;
+}
+
+.nav-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: white;
+    min-width: 200px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    padding: 8px 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    border-top: 3px solid #FFA825;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.nav-dropdown-menu li {
+    padding: 0;
+}
+
+.nav-dropdown-menu li a {
+    display: block;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-family: sans-serif;
+    font-weight: 500;
+    color: #333;
+    transition: all 0.25s ease;
+    border-left: 3px solid transparent;
+}
+
+.nav-dropdown-menu li a:hover {
+    background: #fff8ee;
+    color: #FFA825;
+    border-left: 3px solid #FFA825;
+    padding-left: 25px;
+}
+
+.nav-dropdown-menu li + li {
+    border-top: 1px solid #f0f0f0;
+}
+
 .bx-cart-alt {
     font-size: 30px;
     font-family: sans-serif;
@@ -1231,6 +1300,7 @@ textarea:focus {
         display: grid;
         grid-template-columns: repeat(3, auto);
         grid-gap: 5px;
+        align-items: start;
     }
 
     .generator-card {

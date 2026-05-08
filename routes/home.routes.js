@@ -5,7 +5,7 @@ const Auth = db.Auth
 const uploads = require("../middleware/upload");
 const isAuth = require("../middleware/auth");
 
-const { AddObject, GetById, EditPage } = require("../controllers/home/home.controllers");
+const { AddObject, GetById, EditPage, DeleteObject, UpdateObject, GetALLall, RentObject, GetMyRentals, CancelRental } = require("../controllers/home/home.controllers");
 const auth = require("../models/auth");
 
 router.get("/", isAuth, async (req, res) => {
@@ -27,6 +27,10 @@ router.get("/object", isAuth, async (req, res) => {
     const objects = await Object.findAll({
         where: { userId: req.session.user.id },
         raw: true
+    });
+
+    objects.forEach(item => {
+        item.isOwner = true;
     });
 
     res.render("home/object", {
@@ -53,11 +57,24 @@ router.get("/video", isAuth, (req,res)=>{
     res.render("home/video");
 });
 
-router.get("/edit", EditPage)
+router.get("/edit/:id", isAuth, EditPage)
+
+router.post("/edit/:id", isAuth, uploads.single("image"), UpdateObject)
+
+router.get("/delete/:id", isAuth, DeleteObject)
 
 router.get("/contact", isAuth, (req,res)=>{
     res.render("home/contact");
 });
+
+
+router.get("/marketplace", isAuth, GetALLall);
+
+router.get("/rent/:id", isAuth, RentObject);
+
+router.get("/my-rentals", isAuth, GetMyRentals);
+
+router.get("/cancel-rental/:id", isAuth, CancelRental);
 
 
 module.exports = router;

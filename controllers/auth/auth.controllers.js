@@ -9,15 +9,22 @@ exports.registerUser = async (req, res) => {
     try {
         const { nameUser, bornDay, email, password } = req.body
 
+        if (!email.endsWith("@gmail.com")) {
+            return res.redirect("/auth/register?error=email")
+        }
+
+        if (password.length < 8) {
+            return res.redirect("/auth/register?error=password")
+        }
+
         await Auth.create({ nameUser, bornDay, email, password })
 
-        res.redirect("/auth/login");
+        res.redirect("/auth/login?success=1")
 
     } catch (error) {
-        console.log(error);
+        console.log(error)
     }
 }
-
 
 
 exports.loginPage = (req, res) => {
@@ -27,6 +34,14 @@ exports.loginPage = (req, res) => {
 exports.loginUser = async (req, res) => {
     const { email, password } = req.body
 
+    if (!email.endsWith("@gmail.com")) {
+        return res.redirect("/auth/login?error=email")
+    }
+
+    if (password.length < 8) {
+        return res.redirect("/auth/login?error=password")
+    }
+
     const user = await Auth.findOne({ where: { email, password } })
 
     if (user) {
@@ -35,13 +50,11 @@ exports.loginUser = async (req, res) => {
             nameUser: user.nameUser,
             email: user.email
         }
-        res.redirect("/")
+
+        return res.redirect("/")
     }
 
-
-    else {
-        res.send("Ошибка входа")
-    }
+    res.redirect("/auth/login?error=login")
 }
 exports.logout = (req, res) => {
     req.session.destroy(() => {

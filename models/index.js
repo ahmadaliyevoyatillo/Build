@@ -14,4 +14,11 @@ db.Auth = require("./auth")(sequelize, Sequelize)
 
 db.Auth.hasMany(db.Object, { foreignKey: "userId" });
 db.Object.belongsTo(db.Auth, { foreignKey: "userId" });
+
+db.Rental = require("./rental")(sequelize, Sequelize)
+db.Auth.hasMany(db.Rental, { foreignKey: "buyerId" });
+db.Rental.belongsTo(db.Auth, { foreignKey: "buyerId" });
+db.Object.hasMany(db.Rental, { foreignKey: "objectId" });
+db.Rental.belongsTo(db.Object, { foreignKey: "objectId" });
+
 module.exports = db

@@ -1,10 +1,8 @@
 <section class="arenda">
     <div class="container">
         <div class="arenda_btn_div">
-        <button class="arenda-button">АРЕНДОВАТЬ</button>
-        <button class="arenda-button" style="background-color: rgb(207, 6, 6);">
-           <a href="/" style="color: black;">ОТМЕНИТЬ</a>
-            </button>
+        <a href="/rent/{{objects.id}}" class="arenda-button">АРЕНДОВАТЬ</a>
+        <a href="/marketplace" class="arenda-button" style="background-color: rgb(207, 6, 6); color: black;">ОТМЕНИТЬ</a>
         </div>
         <div class="arenda_box">
             <img src="/uploads/{{objects.image}}" alt="rasm qani">
@@ -19,6 +17,8 @@
                 <p class="arenda-price">Стоимость:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{objects.price}} Р</p>
                 <hr class="arenda-hr">
                 <p class="arenda-give">Доставка: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{objects.give}}</p>
+                <hr class="arenda-hr">
+                <p class="arenda-email" style="font-weight: bold; color: #333;">Владелец: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{objects.user.email}}</p>
                 <hr class="arenda-hr">
             </div>
 
