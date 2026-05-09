@@ -28,8 +28,18 @@ app.use(session({
     saveUninitialized:true
 }));
 
-app.use((req,res,next)=>{
+app.use(async (req,res,next)=>{
     res.locals.user = req.session ? req.session.user : null;
+    if (res.locals.user) {
+        try {
+            res.locals.rentalsCount = await db.Rental.count({
+                where: { buyerId: res.locals.user.id, status: "active" }
+            });
+        } catch (error) {
+            console.log(error);
+            res.locals.rentalsCount = 0;
+        }
+    }
     next();
 });
 

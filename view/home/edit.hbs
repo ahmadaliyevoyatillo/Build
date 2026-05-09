@@ -1,11 +1,11 @@
-<form action="/add" method="POST" class="form-box" enctype="multipart/form-data">
+<form action="/edit/{{object.id}}" method="POST" class="form-box" enctype="multipart/form-data">
 
-    <input type="file" name="image" placeholder="Название" required>
-    <input type="text" name="name" placeholder="Название" required>
-    <input type="number" name="wolt" placeholder="Вольт" required>
-    <input type="number" name="massa" placeholder="Масса" required>
-    <input type="number" name="price" placeholder="Цена" required>
-    <input type="number" name="give" placeholder="Мощность" required>
+    <input type="file" name="image" placeholder="Название">
+    <input type="text" name="name" placeholder="Название" value="{{object.name}}" required>
+    <input type="number" name="wolt" placeholder="Вольт" value="{{object.wolt}}" required>
+    <input type="number" name="massa" placeholder="Масса" value="{{object.massa}}" required>
+    <input type="number" name="price" placeholder="Цена" value="{{object.price}}" required>
+    <input type="number" name="give" placeholder="Мощность" value="{{object.give}}" required>
 
     <button type="submit">Сохранить</button>
 

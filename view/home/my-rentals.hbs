@@ -8,13 +8,13 @@
             {{#if rentals}}
             {{#each rentals}}
             <div class="generator-card">
-                <img src="/uploads/{{this.object.image}}" width="200">
-                <h2 class="generator-name">{{this.object.name}}</h2>
-                <p class="generator-wolt">Вольт: {{this.object.wolt}}</p>
-                <p class="generator-massa">Масса: {{this.object.massa}} кг</p>
-                <p class="generator-price">Стоимость: {{this.object.price}} Р</p>
-                <p class="generator-give">Доставка: {{this.object.give}}</p>
-                <p class="generator-email" style="font-weight: bold; color: #333;">Владелец: {{this.object.user.email}}</p>
+                <img src="/uploads/{{this.thing.image}}" width="200">
+                <h2 class="generator-name">{{this.thing.name}}</h2>
+                <p class="generator-wolt">Вольт: {{this.thing.wolt}}</p>
+                <p class="generator-massa">Масса: {{this.thing.massa}} кг</p>
+                <p class="generator-price">Стоимость: {{this.thing.price}} Р</p>
+                <p class="generator-give">Доставка: {{this.thing.give}}</p>
+                <p class="generator-email" style="font-weight: bold; color: #333;">Владелец: {{this.thing.user.email}}</p>
                 <p style="color: green; font-weight: bold; padding: 5px 15px;">✅ Арендовано</p>
                 <a href="/cancel-rental/{{this.id}}" class="generator-button" style="background-color: rgb(207, 6, 6);">ОТМЕНИТЬ АРЕНДУ</a>
             </div>

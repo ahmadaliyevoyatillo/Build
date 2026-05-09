@@ -11,12 +11,13 @@
                 <p class="generator-price">Стоимость: {{this.price}} Р</p>
                 <p class="generator-give">Доставка: {{this.give}}</p>
                 <p class="generator-email" style="font-weight: bold; color: #333;">Владелец: {{this.user.email}}</p>
-                <a href="/object/{{this.id}}" class="generator-button">
-                    АРЕНДОВАТЬ
-                </a>
                 {{#if this.isOwner}}
                 <a href="/edit/{{this.id}}" class="generator-button">изменить</a>
                 <a href="/delete/{{this.id}}" class="generator-button" style="background-color: rgb(207, 6, 6);">удалить</a>
+                {{else}}
+                <a href="/object/{{this.id}}" class="generator-button">
+                    АРЕНДОВАТЬ
+                </a>
                 {{/if}}
             </div>
             {{/each}}
