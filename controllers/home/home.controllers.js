@@ -251,9 +251,7 @@ const GetMyRentals = async (req, res) => {
                     model: db.Auth,
                     attributes: ['email']
                 }]
-            }],
-            raw: true,
-            nest: true
+            }]
         });
 
         res.render("home/my-rentals", { rentals });

@@ -6,9 +6,13 @@ const uploads = require("../middleware/upload");
 const isAuth = require("../middleware/auth");
 
 const { AddObject, GetById, EditPage, DeleteObject, UpdateObject, GetALLall, RentObject, GetMyRentals, CancelRental } = require("../controllers/home/home.controllers");
-const auth = require("../models/auth");
-
 router.get("/", isAuth, async (req, res) => {
+    const rentalCount = await db.Rental.count({
+        where: {
+            buyerId: req.session.user.id
+        }
+    });
+
     const objects = await Object.findAll({
         where: { userId: req.session.user.id },
         raw: true
@@ -17,20 +21,23 @@ router.get("/", isAuth, async (req, res) => {
     res.render("home/home", {
         title: "Главная",
         objects,
-        user: req.session.user
+        user: req.session.user,
+        rentalCount
     });
 });
-router.get("/", (req,res) => {
-    res.render("partials/navbar", {auth})
-})
+
 router.get("/object", isAuth, async (req, res) => {
     const objects = await Object.findAll({
-        where: { userId: req.session.user.id },
-        raw: true
+        raw: true,
+        nest: true,
+        include: [{
+            model: Auth,
+            attributes: ['email']
+        }]
     });
 
     objects.forEach(item => {
-        item.isOwner = true;
+        item.isOwner = item.userId === req.session.user.id;
     });
 
     res.render("home/object", {
