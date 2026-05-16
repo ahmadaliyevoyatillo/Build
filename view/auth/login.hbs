@@ -56,18 +56,18 @@ function togglePassword() {
     const params = new URLSearchParams(window.location.search)
 
     if (params.get("error") === "email") {
-        alert("Email @gmail.com bo‘lishi kerak")
+        alert("Email должен оканчиваться на @gmail.com")
     }
 
     if (params.get("error") === "password") {
-        alert("Parol kamida 8 ta bo‘lishi kerak")
+        alert("Пароль должен содержать минимум 8 символов")
     }
 
     if (params.get("error") === "login") {
-        alert("Email yoki parol xato")
+        alert("Неверный email или пароль")
     }
 
     if (params.get("success") === "1") {
-        alert("Muvaffaqiyatli ro‘yxatdan o‘tildi!")
+        alert("Успешная регистрация!")
     }
 </script>

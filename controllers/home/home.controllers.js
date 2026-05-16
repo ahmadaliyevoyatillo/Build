@@ -63,7 +63,20 @@ const GetById = async (req, res) => {
             return res.redirect("/object?error=notfound")
         }
 
-        res.render("home/arenda", { title: "АРЕНДА", objects: data })
+        const currentUserId = req.session.user.id;
+        const isOwner = data.userId === currentUserId;
+
+        // Check if already rented by current user
+        const alreadyRented = await db.Rental.findOne({
+            where: { objectId: id, buyerId: currentUserId, status: "active" }
+        });
+
+        res.render("home/arenda", {
+            title: "АРЕНДА",
+            objects: data,
+            isOwner,
+            isAlreadyRented: !!alreadyRented
+        })
 
     } catch (error) {
         console.log(error)
@@ -187,8 +200,17 @@ const GetALLall = async (req, res) => {
         });
 
         const currentUserId = req.session.user.id;
+
+        // Get all active rentals by current user
+        const myRentals = await db.Rental.findAll({
+            where: { buyerId: currentUserId, status: "active" },
+            raw: true
+        });
+        const rentedObjectIds = myRentals.map(r => r.objectId);
+
         objekt.forEach(item => {
             item.isOwner = item.userId === currentUserId;
+            item.isAlreadyRented = rentedObjectIds.includes(item.id);
         });
 
         res.render("home/marketplace", { objekt })
@@ -243,7 +265,7 @@ const RentObject = async (req, res) => {
 
 const GetMyRentals = async (req, res) => {
     try {
-        const rentals = await Rental.findAll({
+        const rentalsRaw = await Rental.findAll({
             where: { buyerId: req.session.user.id },
             include: [{
                 model: Object,
@@ -253,6 +275,8 @@ const GetMyRentals = async (req, res) => {
                 }]
             }]
         });
+
+        const rentals = JSON.parse(JSON.stringify(rentalsRaw));
 
         res.render("home/my-rentals", { rentals });
 

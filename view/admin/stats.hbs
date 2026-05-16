@@ -1,0 +1,213 @@
+<div class="admin-page">
+    <div class="admin-container">
+
+        <!-- HEADER -->
+        <div class="admin-header">
+            <div class="admin-header-left">
+                <i class='bx bx-bar-chart-alt-2 admin-header-icon'></i>
+                <div>
+                    <h1 class="admin-title">Подробная статистика</h1>
+                    <p class="admin-subtitle">Аналитика продаж и товаров</p>
+                </div>
+            </div>
+            <div class="admin-header-right">
+                <a href="/admin" class="admin-stats-btn admin-stats-btn-back">
+                    <i class='bx bx-arrow-back'></i> Назад
+                </a>
+            </div>
+        </div>
+
+        <!-- TOP SUMMARY -->
+        <div class="stats-summary-row">
+            <div class="stats-summary-card stats-card-total">
+                <div class="stats-summary-icon"><i class='bx bx-package'></i></div>
+                <div class="stats-summary-info">
+                    <span class="stats-summary-number">{{allCount}}</span>
+                    <span class="stats-summary-label">Все товары</span>
+                    <span class="stats-summary-price">{{formatPrice allTotalPrice}} ₽</span>
+                </div>
+            </div>
+            <div class="stats-summary-card stats-card-sold">
+                <div class="stats-summary-icon"><i class='bx bx-check-circle'></i></div>
+                <div class="stats-summary-info">
+                    <span class="stats-summary-number">{{soldCount}}</span>
+                    <span class="stats-summary-label">Арендовано</span>
+                    <span class="stats-summary-price">{{formatPrice soldTotalPrice}} ₽</span>
+                </div>
+            </div>
+            <div class="stats-summary-card stats-card-unsold">
+                <div class="stats-summary-icon"><i class='bx bx-time-five'></i></div>
+                <div class="stats-summary-info">
+                    <span class="stats-summary-number">{{unsoldCount}}</span>
+                    <span class="stats-summary-label">Не арендовано</span>
+                    <span class="stats-summary-price">{{formatPrice unsoldTotalPrice}} ₽</span>
+                </div>
+            </div>
+            <div class="stats-summary-card stats-card-rentals">
+                <div class="stats-summary-icon"><i class='bx bx-receipt'></i></div>
+                <div class="stats-summary-info">
+                    <span class="stats-summary-number">{{rentalsCount}}</span>
+                    <span class="stats-summary-label">Все аренды</span>
+                    <span class="stats-summary-price">{{formatPrice rentalsTotalPrice}} ₽</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SOLD OBJECTS TABLE -->
+        <div class="admin-table-box stats-table-box">
+            <div class="admin-table-header stats-table-header-green">
+                <h2><i class='bx bx-check-circle'></i> Арендованные товары</h2>
+                <span class="stats-header-badge">{{soldCount}} шт · {{formatPrice soldTotalPrice}} ₽</span>
+            </div>
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Название</th>
+                        <th>Вольт</th>
+                        <th>Масса</th>
+                        <th>Цена</th>
+                        <th>Доставка</th>
+                        <th>Владелец</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#if soldObjects}}
+                    {{#each soldObjects}}
+                    <tr>
+                        <td><span class="admin-badge">#{{this.id}}</span></td>
+                        <td><strong>{{this.name}}</strong></td>
+                        <td>{{this.wolt}} V</td>
+                        <td>{{this.massa}} кг</td>
+                        <td class="admin-price-cell">{{formatPrice this.price}} ₽</td>
+                        <td>{{this.give}}</td>
+                        <td>{{this.user.email}}</td>
+                    </tr>
+                    {{/each}}
+                    {{else}}
+                    <tr><td colspan="7" class="admin-empty">Нет арендованных товаров</td></tr>
+                    {{/if}}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- UNSOLD OBJECTS TABLE -->
+        <div class="admin-table-box stats-table-box">
+            <div class="admin-table-header stats-table-header-orange">
+                <h2><i class='bx bx-time-five'></i> Не арендованные товары</h2>
+                <span class="stats-header-badge">{{unsoldCount}} шт · {{formatPrice unsoldTotalPrice}} ₽</span>
+            </div>
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Название</th>
+                        <th>Вольт</th>
+                        <th>Масса</th>
+                        <th>Цена</th>
+                        <th>Доставка</th>
+                        <th>Владелец</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#if unsoldObjects}}
+                    {{#each unsoldObjects}}
+                    <tr>
+                        <td><span class="admin-badge">#{{this.id}}</span></td>
+                        <td><strong>{{this.name}}</strong></td>
+                        <td>{{this.wolt}} V</td>
+                        <td>{{this.massa}} кг</td>
+                        <td class="admin-price-cell">{{formatPrice this.price}} ₽</td>
+                        <td>{{this.give}}</td>
+                        <td>{{this.user.email}}</td>
+                    </tr>
+                    {{/each}}
+                    {{else}}
+                    <tr><td colspan="7" class="admin-empty">Все товары арендованы</td></tr>
+                    {{/if}}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ALL OBJECTS TABLE -->
+        <div class="admin-table-box stats-table-box">
+            <div class="admin-table-header stats-table-header-blue">
+                <h2><i class='bx bx-package'></i> Все товары</h2>
+                <span class="stats-header-badge">{{allCount}} шт · {{formatPrice allTotalPrice}} ₽</span>
+            </div>
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Название</th>
+                        <th>Вольт</th>
+                        <th>Масса</th>
+                        <th>Цена</th>
+                        <th>Доставка</th>
+                        <th>Владелец</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#if allObjects}}
+                    {{#each allObjects}}
+                    <tr>
+                        <td><span class="admin-badge">#{{this.id}}</span></td>
+                        <td><strong>{{this.name}}</strong></td>
+                        <td>{{this.wolt}} V</td>
+                        <td>{{this.massa}} кг</td>
+                        <td class="admin-price-cell">{{formatPrice this.price}} ₽</td>
+                        <td>{{this.give}}</td>
+                        <td>{{this.user.email}}</td>
+                    </tr>
+                    {{/each}}
+                    {{else}}
+                    <tr><td colspan="7" class="admin-empty">Нет товаров</td></tr>
+                    {{/if}}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ALL RENTALS TABLE -->
+        <div class="admin-table-box stats-table-box">
+            <div class="admin-table-header stats-table-header-purple">
+                <h2><i class='bx bx-receipt'></i> Все аренды</h2>
+                <span class="stats-header-badge">{{rentalsCount}} шт · {{formatPrice rentalsTotalPrice}} ₽</span>
+            </div>
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Товар</th>
+                        <th>Цена</th>
+                        <th>Покупатель</th>
+                        <th>Статус</th>
+                        <th>Дата</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#if allRentals}}
+                    {{#each allRentals}}
+                    <tr>
+                        <td><span class="admin-badge">#{{this.id}}</span></td>
+                        <td>{{this.thing.name}}</td>
+                        <td class="admin-price-cell">{{formatPrice this.thing.price}} ₽</td>
+                        <td>{{this.user.email}}</td>
+                        <td>
+                            {{#if (eq this.status "active")}}
+                            <span class="admin-status admin-status-active">Активный</span>
+                            {{else}}
+                            <span class="admin-status admin-status-cancelled">Отменён</span>
+                            {{/if}}
+                        </td>
+                        <td>{{formatDate this.createdAt}}</td>
+                    </tr>
+                    {{/each}}
+                    {{else}}
+                    <tr><td colspan="6" class="admin-empty">Нет аренд</td></tr>
+                    {{/if}}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>

@@ -10,10 +10,8 @@
                 <p class="generator-massa">Масса:{{this.massa}} кг</p>
                 <p class="generator-price">Стоимость: {{this.price}} Р</p>
                 <p class="generator-give">Доставка: {{this.give}}</p>
-                    <a href="/object/{{this.id}}" class="generator-button">
-                    АРЕНДОВАТЬ
-                    </a>
-                    <a href="/delete/{{this.id}}" class="generator-button">удалить</a>
+                    <a href="/edit/{{this.id}}" class="generator-button" style="background-color: #ffad00; color: black;">ИЗМЕНИТЬ</a>
+                    <a href="/delete/{{this.id}}" class="generator-button" style="background-color: rgb(207, 6, 6);">УДАЛИТЬ</a>
             </div>
             {{/each}}
             {{else}}

@@ -15,6 +15,21 @@ app.engine("hbs", hbs.engine({
     helpers: {
         eq: function(a, b) {
             return a === b;
+        },
+        gt: function(a, b) {
+            return a > b;
+        },
+        formatPrice: function(price) {
+            return Number(price).toLocaleString("ru-RU");
+        },
+        formatDate: function(date) {
+            if (!date) return "—";
+            return new Date(date).toLocaleDateString("ru-RU", { day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit" });
+        },
+        statusLabel: function(status) {
+            if (status === "active") return "Активный";
+            if (status === "cancelled") return "Отменён";
+            return status;
         }
     }
 }))
@@ -31,6 +46,7 @@ app.use(session({
 app.use(async (req,res,next)=>{
     res.locals.user = req.session ? req.session.user : null;
     if (res.locals.user) {
+        res.locals.isAdmin = res.locals.user.role === "admin";
         try {
             res.locals.rentalsCount = await db.Rental.count({
                 where: { buyerId: res.locals.user.id, status: "active" }
@@ -48,6 +64,7 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.use("/", require("./routes/home.routes"))
 app.use("/auth", require("./routes/auth.routes"))
+app.use("/admin", require("./routes/admin.routes"))
 
 
 

@@ -15,9 +15,13 @@
                 <a href="/edit/{{this.id}}" class="generator-button">изменить</a>
                 <a href="/delete/{{this.id}}" class="generator-button" style="background-color: rgb(207, 6, 6);">удалить</a>
                 {{else}}
-                <a href="/object/{{this.id}}" class="generator-button">
-                    АРЕНДОВАТЬ
-                </a>
+                    {{#if this.isAlreadyRented}}
+                        <span class="generator-button" style="background-color: #4CAF50; color: white; cursor: default;">✅ АРЕНДОВАНО</span>
+                    {{else}}
+                        <a href="/object/{{this.id}}" class="generator-button">
+                            АРЕНДОВАТЬ
+                        </a>
+                    {{/if}}
                 {{/if}}
             </div>
             {{/each}}

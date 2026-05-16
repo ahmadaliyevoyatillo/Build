@@ -69,6 +69,10 @@
                             </ul>
                         </li>
 
+                        {{#if isAdmin}}
+                        <li><a href="/admin" class="admin-nav-btn"><i class='bx bx-shield-quarter'></i> АДМИН</a></li>
+                        {{/if}}
+
                         <li><a href="/auth/logout" class="logout-btn">ВЫХОД</a></li>
 
                     {{else}}
@@ -93,7 +97,4 @@
         </div>
     </div>
 
-    {{#if user}}
-        <button class="header-btn">ОТПРАВИТЬ ЗАЯВКУ</button>
-    {{/if}}
 </header>

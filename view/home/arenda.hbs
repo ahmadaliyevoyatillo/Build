@@ -1,8 +1,17 @@
 <section class="arenda">
     <div class="container">
         <div class="arenda_btn_div">
-        <a href="/rent/{{objects.id}}" class="arenda-button">АРЕНДОВАТЬ</a>
-        <a href="/marketplace" class="arenda-button" style="background-color: rgb(207, 6, 6); color: black;">ОТМЕНИТЬ</a>
+        {{#if isOwner}}
+            <a href="/edit/{{objects.id}}" class="arenda-button" style="background-color: #ffad00; color: black;">ИЗМЕНИТЬ</a>
+        {{else}}
+            {{#if isAlreadyRented}}
+                <span class="arenda-button" style="background-color: #4CAF50; color: white; cursor: default;">✅ УЖЕ АРЕНДОВАНО</span>
+                <a href="/my-rentals" class="arenda-button" style="background-color: #2196F3; color: white;">МОИ АРЕНДЫ</a>
+            {{else}}
+                <a href="/rent/{{objects.id}}" class="arenda-button">АРЕНДОВАТЬ</a>
+            {{/if}}
+        {{/if}}
+        <a href="/marketplace" class="arenda-button" style="background-color: rgb(207, 6, 6); color: black;">НАЗАД</a>
         </div>
         <div class="arenda_box">
             <img src="/uploads/{{objects.image}}" alt="rasm qani">

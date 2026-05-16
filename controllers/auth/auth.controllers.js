@@ -48,7 +48,8 @@ exports.loginUser = async (req, res) => {
         req.session.user = {
             id: user.id,
             nameUser: user.nameUser,
-            email: user.email
+            email: user.email,
+            role: user.role
         }
 
         return res.redirect("/")

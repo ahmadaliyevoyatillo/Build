@@ -5,7 +5,7 @@ const Auth = db.Auth
 const uploads = require("../middleware/upload");
 const isAuth = require("../middleware/auth");
 
-const { AddObject, GetById, EditPage, DeleteObject, UpdateObject, GetALLall, RentObject, GetMyRentals, CancelRental } = require("../controllers/home/home.controllers");
+const { AddObject, GetById, EditPage, DeleteObject, UpdateObject, GetALLall, RentObject, GetMyRentals, CancelRental, GetAllObject } = require("../controllers/home/home.controllers");
 router.get("/", isAuth, async (req, res) => {
     const rentalCount = await db.Rental.count({
         where: {
@@ -26,25 +26,7 @@ router.get("/", isAuth, async (req, res) => {
     });
 });
 
-router.get("/object", isAuth, async (req, res) => {
-    const objects = await Object.findAll({
-        raw: true,
-        nest: true,
-        include: [{
-            model: Auth,
-            attributes: ['email']
-        }]
-    });
-
-    objects.forEach(item => {
-        item.isOwner = item.userId === req.session.user.id;
-    });
-
-    res.render("home/object", {
-        title: "Объекты",
-        objects
-    });
-});
+router.get("/object", isAuth, GetAllObject);
 
 router.get("/add", isAuth, (req, res) => {
     res.render("home/add", {
